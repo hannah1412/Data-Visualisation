@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Exclusion </title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <h1>How Age, Health, and Income Shape Digital Device Use Across the UK</h1>
+
+  <p>This interactive data visualisation explores how age, health conditions, and socioeconomic factors such as income and region influence digital device ownership and usage across the UK. With the growing reliance on technology in everyday life, understanding digital inequalities is more important than ever. This tool is designed to provide an intuitive and accessible way for users to explore these inequalities at both national and regional levels.</p>
+  <p>The visualisation is composed of three core components - a geographical heatmap, bar charts, and a matrix heatmap - each of which allows users to interact with and investigate different aspects of the dataset. Together, these components offer insights into patterns of digital access and ownership, highlighting where disparities exist and who is most affected.</p>
+  <p>This visualisation is intended for anyone with an interest in digital inclusion, from policymakers to the general public. The visualisation is based on survey data collected by Ofcom. </p>
+
+  <h2>Geographical Heatmap</h2>
+  <p>The geographical heatmap provides an overview of digital device ownership and usage across different UK regions. Users can choose between viewing device type (e.g., smartphones, tablets) or device usage (e.g., using devices for banking, communication, etc.) through a dropdown menu. An additional filter allows users to explore the data for specific age ranges.</p>
+  <p>Hovering over a region reveals a tooltip displaying the region name and the number of people in that region who match the selected filters.</p>
+  
+  <div id="main">
+    <!-- GEOGRAPHICAL MAP -->
+    <div id="map-container">
+      <!--      <button class="region" data-region="scotland">Scotland</button> -->
+      <!--      <button class="region" data-region="england">England</button> -->
+
+      <div id="controls">
+        <!--  -->
+        <fieldset id="modeSwitch">
+          <legend>Filter by:</legend>
+          <label>
+            <input type="radio" name="mode" value="type" checked>
+            Device Type
+          </label>
+          <label>
+            <input type="radio" name="mode" value="usage">
+            Device Usage
+          </label>
+        </fieldset>
+        <!--  -->
+
+        <!--  -->
+        <label>
+          Device:
+          <select id="deviceFilter"></select>
+        </label>
+        <label>
+          Age:
+          <select id="ageFilter">
+          </select>
+        </label>
+        <!--  -->
+      </div>
+      <svg id="map" width="960" height="800"></svg>
+      <script src="./regionalMap.js"></script>
+    </div>
+
+    <h2>Bar Charts</h2>
+    <p>Clicking on a region in the geographical map above zooms in on more detailed data, bringing up three bar charts that break down device ownership in that region by age group, income band, and health conditions.</p>
+    <p>These charts show how many people in each category own digital devices, allowing users to compare demographic groups within a selected region. The charts automatically update based on the region selected, helping to reveal local patterns and disparities in digital access.</p>
+    
+    <!-- BAR CHART -->
+    <div id="all-categories">
+      <h3 id="region-title"></h3>
+      <div id="barcharts">
+        <div id="age" class="chart"></div>
+        <div id="income" class="chart"></div>
+        <div id="health" class="chart"></div>
+      </div>
+    </div>
+
+    <h2>Matrix Heatmap</h2>
+    <p>The matrix heatmap that enables pairwise comparisons between two selected demographic dimensions: age, income, and health. Users can choose any combination of these categories using dropdown menus. Clicking on a region in the geographical map above updates the Matrox Heatmap with data for that region.</p>
+    <p>Each square in the matrix represents the number of people who belong to a specific pair of demographic categories. The darker the square, the higher the count. Hovering over a square shows a tooltip with the exact demographic pairing and the number of people in that category who own devices. This tool provides a nuanced look at how intersecting factors influence digital access.</p>
+    
+    <div id="heatmap"></div>
+
+    <script type="module">
+      import { drawHeatmap } from './heatmap.js';
+      import './main.js';
+
+      drawHeatmap('#heatmap', 'data/digital-exclusion-data.csv');
+    </script>
+
+  </div>
+
+  
+</body>
+
+</html>

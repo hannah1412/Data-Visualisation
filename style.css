@@ -1,0 +1,133 @@
+#main {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+#all-categories {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.chart {
+  flex: 1;
+  height: 100%;
+  position: relative;
+}
+
+#map-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px;
+}
+
+.region {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.region:hover {
+  background-color: #d0d0d0;
+}
+
+#barcharts {
+  display: none;
+  width: 1000px;
+  height: 1000px;
+}
+#barcharts.visible {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 1000px;
+  height: 1000px;
+}
+#all-categories {
+  display: none;
+}
+
+#all-categories.visible {
+  display: flex;
+  flex-direction: column;
+}
+
+#controls {
+  font-size: 25px;
+  #modeSwitch {
+    font-weight: bold;
+    label {
+      font-weight: normal;
+    }
+  }
+
+  label {
+    font-weight: bold;
+
+    select {
+      border: 1.5px solid rgb(63, 133, 225);
+      position: inherit;
+      width: 100%;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 16px;
+      text-align: center;
+
+      background-color: white;
+    }
+  }
+}
+
+#heatmap {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#heatmap select {
+  border: 1.5px solid rgb(63, 133, 225);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  text-align: center;
+  background-color: white;
+}
+
+h1 {
+  font-size: 2.2em;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  color: #003566;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  color: #003566;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1.05em;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  margin-left: 20px;
+  max-width: 900px;
+}
